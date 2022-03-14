@@ -6,7 +6,10 @@ import {useGifs} from '../../hooks/useGifs'
 export default function SearchResults({params}) {
     const { keyword } = params
     const { loading, gifs } = useGifs({ keyword })
-/*
+    
+    //console.log({loading, gifs});
+    
+/* EXPORTO LAS CONSTANTES Y LA FUNCION USEEFFECT PARA CREAR EL CUSTOM HOOK Y PODER REUTILIZARLO
     const [loading, setLoading] = useState(false)
     const [gifs, setGifs] = useState([])
 
@@ -29,3 +32,4 @@ export default function SearchResults({params}) {
     </>
   )
 }
+
