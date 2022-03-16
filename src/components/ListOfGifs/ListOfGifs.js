@@ -11,7 +11,7 @@ export default function ListOfGifs({gifs}) {
             gifs.map(( {id, title, url} ) => 
                 <Gif 
                 id = {id}
-//Siempre se pasa un indice unico por iteracion, para que no genere inconsistencias en los datos.
+//Siempre se pasa un indice unico (KEY) por iteracion, para que no genere inconsistencias en los datos.
                 key = {id} 
                 title = {title}
                 url= {url}

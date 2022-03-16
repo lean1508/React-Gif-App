@@ -1,18 +1,24 @@
-const apiKey = '000tGNh3zgwWRHI9z3M9FKzoVsCZeCma'
+import {API_KEY, API_URL} from './settings'
 
-export default async function getGifs({keyword} = {}){
-    const gifUrl = 'https://api.giphy.com/v1/gifs/search?api_key='+ apiKey + '&q=' + keyword + '&limit=25&offset=0&rating=g&lang=en'
-    return await fetch(gifUrl)
-    .then(res => res.json())
-    .then(respuesta => {
-      const {data = []} = respuesta
-      if (Array.isArray(data)) {
-        const gifs = data.map(image => {
-            const {images, title, id } = image
-            const { url } = images.downsized_medium
-            return { title, id, url }
-        })
-        return gifs
-      }        
+const fromApiResponseToGifs = apiResponse => {
+  const {data = []} = apiResponse
+  if (Array.isArray(data)) {
+    const gifs = data.map(image => {
+      const {images, title, id} = image
+      const { url } = images.downsized_medium
+      return { title, id, url }
     })
+    return gifs
+  }
+  return []
 }
+
+export default async function getGifs({keyword = 'witcher', page = 0 , limit = 25} ={}){
+    const gifUrl = `${API_URL}/gifs/search?api_key=${API_KEY}&q=${keyword}&limit=${limit}&offset=${page*limit}&rating=g&lang=en`
+      
+      return await fetch(gifUrl)
+        .then(res => res.json())
+        .then(fromApiResponseToGifs)
+        
+      }        
+    
