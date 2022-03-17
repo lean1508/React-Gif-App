@@ -33,7 +33,7 @@ const handleInput = e => {
         <button className="App-button btn btn-success">Buscar!</button>
       </form>
       <div className="container-fluid p-3">
-        <h3 className="App-title">Última busqueda</h3>
+        <h3 className="App-title px-5">Última busqueda</h3>
       </div>
       <ListOfGifs gifs={gifs} />
        <TrendingSearches />

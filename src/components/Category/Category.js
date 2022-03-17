@@ -7,7 +7,7 @@ export default function Category({name, options = []}) {
       <div className="container p-3 border-top mt-5">
         <h3 className="App-title">{name}</h3>
         </div>
-      <ul className="App-list list-group list-group-horizontal-sm">
+      <ul className="App-list list-group list-group-horizontal-sm px-4 pb-4">
         {options.map((opcion) => (
           <li key={opcion}>
             <Link

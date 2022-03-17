@@ -6,7 +6,7 @@ export default function ListOfGifs({gifs}) {
   
 
   return (
-      <div className='ListOfGifs'>
+      <div className='ListOfGifs px-5'>
         {
             gifs.map(( {id, title, url} ) => 
                 <Gif 
